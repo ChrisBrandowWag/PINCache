@@ -880,7 +880,7 @@ static NSURL *_sharedTrashURL;
     NSDate *now = [[NSDate alloc] init];
     
     [self lock];
-        BOOL containsKey = [_knownKeys containsObject:key] && _diskStateKnown;
+        BOOL containsKey = [_knownKeys containsObject:key] || _diskStateKnown == NO;
     [self unlock];
 
     if (!key || !containsKey)
